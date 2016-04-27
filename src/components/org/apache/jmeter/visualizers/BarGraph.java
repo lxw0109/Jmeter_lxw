@@ -39,7 +39,9 @@ public class BarGraph {
     public BarGraph(String label, boolean checked, Color backColor) {
         super();
         this.label = label;
+        //20160427 lxw
         this.chkBox = new JCheckBox(this.label, checked);
+        //this.chkBox = new JCheckBox("lxw", checked);
         this.backColor = backColor;
     }
 
