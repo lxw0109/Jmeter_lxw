@@ -526,18 +526,9 @@ public class JMeter implements JMeterPlugin {
         if (parser.getArgumentById(PROPFILE_OPT) != null) {
             JMeterUtils.loadJMeterProperties(parser.getArgumentById(PROPFILE_OPT).getArgument());
         } else {
-        	//20160427	lxw
-        	//Original
             JMeterUtils.loadJMeterProperties(NewDriver.getJMeterDir() + File.separator
                     + "bin" + File.separator // $NON-NLS-1$
                     + "jmeter.properties");// $NON-NLS-1$
-        	/*
-        	//Revised
-            JMeterUtils.loadJMeterProperties(NewDriver.getJMeterDir() + File.separator
-            		+ "Jmeter2.13" + File.separator
-                    + "bin" + File.separator // $NON-NLS-1$
-                    + "jmeter.properties");// $NON-NLS-1$
-            */
         }
 
         if (parser.getArgumentById(JMLOGFILE_OPT) != null){
