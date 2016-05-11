@@ -73,6 +73,7 @@ public class Load implements Command {
 
     @Override
     public void doAction(final ActionEvent e) {
+    	//lxw JFileChooser自定义的"文件选择选择窗口"
         final JFileChooser chooser = FileDialoger.promptToOpenFile(new String[] { ".jmx" }); //$NON-NLS-1$
         if (chooser == null) {
             return;
