@@ -24,6 +24,7 @@ import java.io.FileOutputStream;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Set;
 
 import javax.swing.JFileChooser;
@@ -211,12 +212,18 @@ public class Save implements Command {
         return true;
     }
 
+    //lxw: A recursive function.
     // package protected to allow access from test code
     void convertSubTree(HashTree tree) {
+    	//lxw: "tree.list()" returns "data.keySet()", i.e. tree.list() returns set of Object
+    	//lxw: Map<Object, HashTree> data
         Iterator<Object> iter = new LinkedList<Object>(tree.list()).iterator();
         while (iter.hasNext()) {
+        	//lxw: Object is casted into JMeterTreeNode.
             JMeterTreeNode item = (JMeterTreeNode) iter.next();
+            //lxw: tree.getTree(item) is still a HashTree. Recursion.
             convertSubTree(tree.getTree(item));
+            //lxw: (Guess) TestElement 指的是测试组件？
             TestElement testElement = item.getTestElement(); // requires JMeterTreeNode
             tree.replaceKey(item, testElement);
         }
